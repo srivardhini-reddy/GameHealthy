@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anomaly Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #bodyImage {
+            position: relative;
+            width: 400px; /* Adjust the size according to your image */
+            height: 600px;
+            background: url('{{ url_for("static", filename="silhouette-of-a-human-body-free-vector-removebg-preview.png") }}') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .highlight {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.5); /* Adjust the highlight color and opacity */
+        }
+
+        #eyesHighlight {
+            width: 30px; /* Adjust the size of the highlight */
+            height: 30px;
+            top: 100px; /* Adjust the position */
+            left: 180px;
+        }
+
+        #faceHighlight {
+            width: 200px;
+            height: 250px;
+            top: 150px;
+            left: 100px;
+        }
+
+        #neckHighlight {
+            width: 120px;
+            height: 50px;
+            top: 400px;
+            left: 140px;
+        }
+
+        #anomaliesTable {
+            position: absolute;
+            top: 20px;
+            left: 450px; /* Adjust the position */
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="bodyImage">
+        <div id="eyesHighlight" class="highlight"></div>
+        <div id="faceHighlight" class="highlight"></div>
+        <div id="neckHighlight" class="highlight"></div>
+    </div>
+
+    <div id="anomaliesTable">
+        <h2>Anomalies Table</h2>
+        <!-- Add your table content here -->
+        <table>
+            <tr>
+                <th>Area</th>
+                <th>Anomaly</th>
+            </tr>
+            <tr>
+                <td>Eyes</td>
+                <td>Example anomaly 1</td>
+            </tr>
+            <tr>
+                <td>Face</td>
+                <td>Example anomaly 2</td>
+            </tr>
+            <tr>
+                <td>Neck</td>
+                <td>Example anomaly 3</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const bodyImage = document.getElementById('bodyImage');
+        const eyesHighlight = document.getElementById('eyesHighlight');
+        const faceHighlight = document.getElementById('faceHighlight');
+        const neckHighlight = document.getElementById('neckHighlight');
+        const anomaliesTable = document.getElementById('anomaliesTable');
+
+        bodyImage.addEventListener('mouseover', () => {
+            eyesHighlight.style.display = 'block';
+            faceHighlight.style.display = 'block';
+            neckHighlight.style.display = 'block';
+            anomaliesTable.style.display = 'block';
+        });
+
+        bodyImage.addEventListener('mouseout', () => {
+            eyesHighlight.style.display = 'none';
+            faceHighlight.style.display = 'none';
+            neckHighlight.style.display = 'none';
+            anomaliesTable.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
